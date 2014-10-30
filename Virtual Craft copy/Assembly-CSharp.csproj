@@ -87,6 +87,7 @@
      <Compile Include="Assets\LeapMotion\Scripts\Utils\LeapRecorder.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Utils\LeapUnityExtensions.cs" />
      <Compile Include="Assets\LeapMotion\Scripts\Utils\MagneticPinch.cs" />
+     <Compile Include="Assets\ModeManager.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCamera.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCameraController.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCrosshair.cs" />
@@ -148,13 +149,13 @@
      <None Include="Assets\LeapMotion\Shaders\LeapUndistorted.shader" />
      <None Include="Assets\Lounge pack\LOUNGE\BeastSettings.xml" />
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>/Users/michael/Downloads/Virtual Craft copy/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>/Users/michael/GitHub/VC-Unity/Virtual Craft copy/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
  <Reference Include="OpenNI.Net">
- <HintPath>/Users/michael/Downloads/Virtual Craft copy/Assets/ZigFu/Scripts/_Internal/OpenNI.Net.dll</HintPath>
+ <HintPath>/Users/michael/GitHub/VC-Unity/Virtual Craft copy/Assets/ZigFu/Scripts/_Internal/OpenNI.Net.dll</HintPath>
  </Reference>
  <Reference Include="ZDK">
- <HintPath>/Users/michael/Downloads/Virtual Craft copy/Assets/ZigFu/Scripts/_Internal/ZDK.dll</HintPath>
+ <HintPath>/Users/michael/GitHub/VC-Unity/Virtual Craft copy/Assets/ZigFu/Scripts/_Internal/ZDK.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

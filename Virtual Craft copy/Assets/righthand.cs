@@ -9,6 +9,8 @@ public class righthand : MonoBehaviour {
 	public float timelimit;
 	public int mode;
 	public bool timerOn;
+	Transform handrotation;
+	ModeManager modemanager;
 	GameObject clone;
 	// Use this for initialization
 	void Start () {
@@ -17,13 +19,30 @@ public class righthand : MonoBehaviour {
 		timerOn = false;
 		mode = 1;
 	}
+
+	void Awake () {
+		handrotation = GameObject.Find ("palm").GetComponent<Transform> ();
+		modemanager = GameObject.Find("Mode Manager").GetComponent<ModeManager>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (timerOn == true) {
 			timer = timer + Time.deltaTime;
 		}
+		HandMode();
+		modemanager.HandPosition = this.transform;
 	}
+
+	void HandMode () {
+		if (handrotation.localRotation.z < -0.55 && handrotation.localRotation.z > -0.75) {
+			modemanager.HandMode = 2;
+		} else {
+			modemanager.HandMode = 0;
+		}
+		Debug.Log (handrotation.localRotation.z);
+	}
+
 
 	public void ModeChange () {
 		if (mode == 1) {

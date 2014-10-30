@@ -9,6 +9,8 @@ TagManager:
   - WorkBoard
   - Button2
   - Button1
+  - Wholehand
+  - AvailableArea
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

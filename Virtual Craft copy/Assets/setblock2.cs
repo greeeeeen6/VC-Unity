@@ -6,6 +6,7 @@ public class setblock2 : MonoBehaviour {
 	GameObject clone;
 	Transform hand;
 	righthand Righthand; 
+	ModeManager modemanager;
 	public Transform workarea;
 	public Color original;
 	public Color touching = new Color(0.8f,0.7f,0.5f);
@@ -27,6 +28,7 @@ public class setblock2 : MonoBehaviour {
 		hand = GameObject.Find("Sphere").GetComponent<Transform>();
 		Righthand = GameObject.Find("Sphere").GetComponent<righthand>();
 		workarea = GameObject.Find("Work Area").GetComponent<Transform>();
+		modemanager = GameObject.Find("Mode Manager").GetComponent<ModeManager>();
 		original = this.renderer.material.color;
 	}
 	
@@ -75,7 +77,8 @@ public class setblock2 : MonoBehaviour {
                         }
 */
 		if (set && mode == 1) {
-			transform.position = hand.transform.position;
+			//transform.position = hand.transform.position;
+			transform.position = modemanager.HandPosition.position;
 			Righthand.Hold ();
 		}
 		if (set && mode == 2) {
@@ -119,8 +122,10 @@ public class setblock2 : MonoBehaviour {
 		
 		if (collision.gameObject.tag == "Righthand") {
 			Initiate ();
-			
-			
+		}
+
+		if (collision.gameObject.tag == "AvailableArea") {  //  If out of the area, it gets destroyed
+			//DestroyItself();
 		}
 	}
 	
@@ -138,5 +143,13 @@ public class setblock2 : MonoBehaviour {
 			}
 			
 		}
+		if (collision.gameObject.tag == "Wholehand" && modemanager.HandMode == 2 ) {
+			//this.rigidbody.
+			rigidbody.constraints = RigidbodyConstraints.None;
+			this.collider.isTrigger = false;
+		}
+
 	}
+
+
 }
