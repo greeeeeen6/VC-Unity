@@ -10,11 +10,13 @@ public class Video : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		renderer.material.mainTexture = movie as MovieTexture;
-		movie.Play ();
+		movie.Play();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (!movie.isPlaying) {
+			movie.Play ();
+				}
 	}
 }
