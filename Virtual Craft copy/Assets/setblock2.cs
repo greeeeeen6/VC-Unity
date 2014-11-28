@@ -17,7 +17,10 @@ public class setblock2 : MonoBehaviour {
 	public bool setposition = true;
 	public bool timerOn;
 	public bool onBoard = false;
+	public bool touchIndex = false;
+	public bool touchThumb = false;
 	public int mode;  //choose mode selecting grid or normal
+
 	// Use this for initialization
 	void Start () {
 		setposition = true;
@@ -38,9 +41,13 @@ public class setblock2 : MonoBehaviour {
 		if (timerOn) {                //If timerOn is true, add seconds to timer
 			timer += Time.deltaTime;
 		}
-		if (timer > timelimit && !Righthand.hold) {  //If timer is over timelimit, the block moves to adjust
+		//if (timer > timelimit && !Righthand.hold) {  //If timer is over timelimit, the block moves to adjust
+		//	setposition = true;
+		//	Initiate();
+		//}
+
+		if (touchIndex == true && touchThumb == true && Righthand.hold == false) {
 			setposition = true;
-			Initiate();
 		}
 		
 	}
@@ -121,7 +128,12 @@ public class setblock2 : MonoBehaviour {
 	{
 		
 		if (collision.gameObject.tag == "Righthand") {
+			touchIndex = false;
 			Initiate ();
+		}
+
+		if (collision.gameObject.tag == "Thumb") {
+			touchThumb = false;
 		}
 
 		if (collision.gameObject.tag == "AvailableArea") {  //  If out of the area, it gets destroyed
@@ -147,6 +159,17 @@ public class setblock2 : MonoBehaviour {
 			//this.rigidbody.
 			rigidbody.constraints = RigidbodyConstraints.None;
 			this.collider.isTrigger = false;
+		}
+
+	}
+
+	private void OnTriggerStay(Collider collision)
+	{
+		if (collision.gameObject.tag == "Righthand") {
+			touchIndex = true;
+		}
+		if (collision.gameObject.tag == "Thumb") {
+			touchThumb = true;
 		}
 
 	}

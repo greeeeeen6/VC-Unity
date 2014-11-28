@@ -40,7 +40,6 @@ public class righthand : MonoBehaviour {
 		} else {
 			modemanager.HandMode = 0;
 		}
-		Debug.Log (handrotation.localRotation.z);
 	}
 
 

@@ -136,6 +136,7 @@
      <Compile Include="Assets\modechange.cs" />
      <Compile Include="Assets\righthand.cs" />
      <Compile Include="Assets\setblock2.cs" />
+     <Compile Include="Assets\thumb.cs" />
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\LeapMotion\InteractionUtils (alpha)\readme.txt" />
